@@ -1,4 +1,6 @@
-##NetFlix Gpt
+#NetFlix Gpt
+- Create React app
+- Configure Tailwind Css
 
 #Features
 
