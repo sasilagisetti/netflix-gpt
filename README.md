@@ -1,6 +1,7 @@
 #NetFlix Gpt
 - Create React app
 - Configure Tailwind Css
+-SetUp Routing
 
 #Features
 
