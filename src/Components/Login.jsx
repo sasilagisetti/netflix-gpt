@@ -11,6 +11,8 @@ import { auth } from "../Utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import Header from "./Header";
+import { avatar_URL } from "../Utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -41,7 +43,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/111446611?v=4",
+            photoURL: avatar_URL,
           })
             .then(() => {
               // Profile updated!
@@ -55,7 +57,7 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
+              // navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -78,7 +80,7 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           // console.log(user);
-          navigate("/browse");
+          // navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -91,14 +93,15 @@ const Login = () => {
   return (
     <div className="bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/7ca5b7c7-20aa-42a8-a278-f801b0d65fa1/fb548c0a-8582-43c5-9fba-cd98bf27452f/IN-en-20240326-popsignuptwoweeks-perspective_alpha_website_large.jpg')] bg-no-repeat w-[100%] h-[100%] text-white flex flex-col">
       <div className="bg-black bg-opacity-55 w-[100%] h-[100%] pb-8">
-        <div className="pl-40 pt-2">
-          <img
+        <div className="bg-transparent">
+          {/* <img
             className="w-48"
             src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
             alt="bg-img"
-          />
+          /> */}
+          <Header />
         </div>
-        <div className="flex flex-col items-center justify-center mt-0 w-[25%] mx-auto">
+        <div className="flex flex-col items-center justify-center mt-8 w-[25%] mx-auto">
           <form
             onSubmit={(e) => e.preventDefault()}
             className="bg-[#000000B3] text-white flex flex-col py-[48px] px-[68px] gap-y-4"
