@@ -28,7 +28,11 @@
 - Update The Store With Trailer Video
 - Embedded the Youtube Video and makeit autoplay and mute
 - Taiwind Classes to make MainConatiner look awesome
-- 
+- Update The Secondary Component
+- Create The MovieList And Movie Card Component
+- Cretae Custom hooks for fetching popular, NowPlaying, TopRated Movies from TMDB
+-  and Update the Store with Data
+- TMDB Image CDN URL
 ...
 
 # Features

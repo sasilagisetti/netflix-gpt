@@ -42,7 +42,7 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div className="px-4 py-2 bg-gradient-to-b from-slate-900 text-white flex flex-row items-center justify-between relative w-full">
+    <div className="px-4 py-2 bg-gradient-to-b from-slate-900 text-white flex flex-row items-center justify-between relative w-full z-50">
       <div className="flex flex-row items-center">
         <div className="w-[8rem] overflow-hidden ">
           <img

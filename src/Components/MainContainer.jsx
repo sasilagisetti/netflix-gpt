@@ -9,7 +9,7 @@ const MainContainer = () => {
   // console.log(movies[0]);
   const { original_title, overview, id } = movies[0];
   return (
-    <div className="absolute w-full -z-10 top-0 left-0 overflow-hidden">
+    <div className=" w-full -z-10 h-screen overflow-hidden">
       <VideoTitle original_title={original_title} overview={overview} />
       <VideoBackground movieId={id} />
     </div>
