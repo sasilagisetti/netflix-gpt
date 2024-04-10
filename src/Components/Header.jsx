@@ -4,11 +4,14 @@ import {auth} from "../Utils/firebase"
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
-import { LOGO_URL } from "../Utils/constants";
+import { LOGO_URL, suppotedLanguages } from "../Utils/constants";
+import { toggleGptSearchView } from "../Utils/gptSlice";
+import { changeLanguage } from "../Utils/configSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector(store=> store.user)
+  const showGptSearchView = useSelector((store)=>store.gpt.showGptSearch)
   const navigate = useNavigate();
 
   const handleSignOut = () => {
@@ -20,6 +23,15 @@ const Header = () => {
     });
   }
 
+  const handleGptSearchClick = () =>{
+    dispatch(toggleGptSearchView());
+  }
+
+  const handleLanguageChange = (e) => {
+    // console.log(e.target.value)
+    dispatch(changeLanguage(e.target.value));
+  }
+  // console.log(selector)
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -52,14 +64,15 @@ const Header = () => {
         </div>
         {user && <ul className="flex flex-row ml-2 gap-x-4 font-semibold text-sm">
           <li>Home</li>
-          <li>TV Shows</li>
           <li>Movies</li>
           <li>New & Popular</li>
-          <li>My List</li>
-          <li>Browse By Language</li>
         </ul>}
       </div>
       {user && <div className="flex flex-row items-center gap-x-4">
+        {showGptSearchView && <select className="bg-black px-1 py-1" name="" id="" onChange={handleLanguageChange}>
+          {suppotedLanguages.map((lang)=><option className="bg-black" value={lang.identifier} key={lang.identifier}>{lang.name}</option>)}
+        </select>}
+        <button className="bg-white font-semibold text-black px-4 py-2 rounded-lg" onClick={handleGptSearchClick}>{showGptSearchView?"Movies":"GPT Search"}</button>
         <div className="flex flex-row items-center gap-x-1">
           <img
             src={user?.photoURL}

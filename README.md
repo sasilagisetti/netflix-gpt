@@ -33,6 +33,12 @@
 - Cretae Custom hooks for fetching popular, NowPlaying, TopRated Movies from TMDB
 -  and Update the Store with Data
 - TMDB Image CDN URL
+- Creating UpComing Movies Custom hook fetch upcoming movies data from TMDB
+- GPT Search Feature
+- Gpt Search Page 
+  - Gpt Search Bar Page 
+  - Gpt Movie Suggestions
+- Gpt Search Page Multi Language
 ...
 
 # Features

@@ -2,7 +2,7 @@ import React from 'react'
 import { IMG_CDN } from '../Utils/constants'
 
 const MovieCard = ({poster}) => {
-    console.log(poster)
+    // console.log(poster)
   return (
     <div>
       <div className='w-48'>
